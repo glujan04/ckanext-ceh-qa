@@ -3,7 +3,7 @@ import logging
 import ckan.model as model
 import ckan.plugins as p
 
-from ckanext.qa.interfaces import IPipe
+from ckanext.archiver.interfaces import IPipe
 from logic import action, auth
 from model import QA, aggregate_qa_for_a_dataset
 import helpers
