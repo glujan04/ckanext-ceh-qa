@@ -3,12 +3,12 @@ import logging
 import ckan.model as model
 import ckan.plugins as p
 
-from ckanext.archiver.interfaces import IPipe
+from ckanext.qa.interfaces import IPipe
 from logic import action, auth
 from model import QA, aggregate_qa_for_a_dataset
 import helpers
 import lib
-from ckanext.report.interfaces import IReport
+#from ckanext.report.interfaces import IReport
 
 
 log = logging.getLogger(__name__)
@@ -18,7 +18,7 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
     p.implements(p.IConfigurer, inherit=True)
     p.implements(p.IRoutes, inherit=True)
     p.implements(IPipe, inherit=True)
-    p.implements(IReport)
+    #p.implements(IReport)
     p.implements(p.IActions)
     p.implements(p.IAuthFunctions)
     p.implements(p.ITemplateHelpers)
