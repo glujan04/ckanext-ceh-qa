@@ -147,7 +147,7 @@ class Archival(Base):
     last_success = Column(types.DateTime)
     failure_count = Column(types.Integer, default=0)
 
-    created = Column(types.DateTime, default=datetime.now)
+    created = Column(types.DateTime, default=datetime.datetime.now)
     updated = Column(types.DateTime)
 
     def __repr__(self):

@@ -1,8 +1,8 @@
 import logging
 
 import ckan.plugins as p
-from ckanext.qa.model import Archival
-from ckanext.qa.model import QA, aggregate_qa_for_a_dataset
+#from ckanext.archival.model import Archival
+from ckanext.qa.model import QA, Archival, aggregate_qa_for_a_dataset
 
 log = logging.getLogger(__name__)
 _ = p.toolkit._
