@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 from ckanext.qa import __version__
 
 setup(
-    name='ckanext-qa',
+    name='ckanext-ceh-qa',
     version=__version__,
     description='Quality Assurance plugin for CKAN',
     long_description='',
@@ -17,8 +17,8 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'ckanext-archiver>=2.0',
-        'ckanext-report',
+        #'ckanext-archiver>=2.0',
+        #'ckanext-report',
         'SQLAlchemy>=0.6.6',
         'requests',
         'xlrd>=0.8.0',
