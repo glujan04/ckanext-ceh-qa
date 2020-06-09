@@ -115,6 +115,57 @@ def aggregate_qa_for_a_dataset(qa_objs):
     return qa_dict
 
 
+class Archival(Base):
+    """
+    Details of the archival of resources. Has the filepath for successfully
+    archived resources. Basic error history provided for unsuccessful ones.
+    """
+    __tablename__ = 'archival'
+
+    id = Column(types.UnicodeText, primary_key=True, default=make_uuid)
+    package_id = Column(types.UnicodeText, nullable=False, index=True)
+    resource_id = Column(types.UnicodeText, nullable=False, index=True)
+    resource_timestamp = Column(types.DateTime)  # key to resource_revision
+
+    # Details of the latest archival attempt
+    status_id = Column(types.Integer)
+    is_broken = Column(types.Boolean)  # Based on status_id. None = not sure
+    reason = Column(types.UnicodeText)  # Extra detail explaining the status (cannot be translated)
+    url_redirected_to = Column(types.UnicodeText)
+
+    # Details of last successful archival
+    cache_filepath = Column(types.UnicodeText)
+    cache_url = Column(types.UnicodeText)
+    size = Column(types.BigInteger, default=0)
+    mimetype = Column(types.UnicodeText)
+    hash = Column(types.UnicodeText)
+    etag = Column(types.UnicodeText)
+    last_modified = Column(types.UnicodeText)
+
+    # History
+    first_failure = Column(types.DateTime)
+    last_success = Column(types.DateTime)
+    failure_count = Column(types.Integer, default=0)
+
+    created = Column(types.DateTime, default=datetime.now)
+    updated = Column(types.DateTime)
+
+    def __repr__(self):
+        broken_details = '' if not self.is_broken else \
+                         ('%d failures' % self.failure_count)
+        package = model.Package.get(self.package_id)
+        package_name = package.name if package else '?%s?' % self.package_id
+        return '<Archival %s /dataset/%s/resource/%s %s>' % \
+            (broken_enum[self.is_broken], package_name, self.resource_id,
+             broken_details)
+
+    @classmethod
+    def get_for_resource(cls, resource_id):
+        '''Returns the archival for the given resource, or if it doens't exist,
+        returns None.'''
+        return model.Session.query(cls).filter(cls.resource_id==resource_id).first()
+
+
 def init_tables(engine):
     Base.metadata.create_all(engine)
     log.info('QA database tables are set-up')
