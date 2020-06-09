@@ -166,6 +166,67 @@ class Archival(Base):
         return model.Session.query(cls).filter(cls.resource_id==resource_id).first()
 
 
+# enum of all the archival statuses (singleton)
+# NB Be very careful changing these status strings. They are also used in
+# ckanext-qa tasks.py.
+class Status:
+    _instance = None
+
+    def __init__(self):
+        not_broken = {
+            # is_broken = False
+            0: 'Archived successfully',
+            1: 'Content has not changed',
+        }
+        broken = {
+            # is_broken = True
+            10: 'URL invalid',
+            11: 'URL request failed',
+            12: 'Download error',
+        }
+        not_sure = {
+            # is_broken = None i.e. not sure
+            21: 'Chose not to download',
+            22: 'Download failure',
+            23: 'System error during archival',
+        }
+        self._by_id = dict(not_broken, **broken)
+        self._by_id.update(not_sure)
+        self._by_text = dict((value, key)
+                             for key, value in self._by_id.iteritems())
+
+    @classmethod
+    def instance(cls):
+        if not cls._instance:
+            cls._instance = cls()
+        return cls._instance
+
+    @classmethod
+    def by_text(cls, status_txt):
+        return cls.instance()._by_text[status_txt]
+
+    @classmethod
+    def by_id(cls, status_id):
+        return cls.instance()._by_id[status_id]
+
+    @classmethod
+    def is_status_broken(cls, status_id):
+        if status_id < 10:
+            return False
+        elif status_id < 20:
+            return True
+        else:
+            return None  # not sure
+
+    @classmethod
+    def is_ok(cls, status_id):
+        return status_id in [0, 1]
+
+broken_enum = {True: 'Broken',
+               None: 'Not sure if broken',
+               False: 'Downloaded OK'}
+
+
 def init_tables(engine):
     Base.metadata.create_all(engine)
     log.info('QA database tables are set-up')

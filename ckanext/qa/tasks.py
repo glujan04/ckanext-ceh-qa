@@ -16,7 +16,8 @@ from ckan.plugins import toolkit
 import ckan.lib.helpers as ckan_helpers
 from sniff_format import sniff_file_format
 import lib
-from ckanext.archiver.model import Archival, Status
+#from ckanext.archiver.model import Archival, Status
+from ckanext.qa.model import Archival, Status
 
 import logging
 
