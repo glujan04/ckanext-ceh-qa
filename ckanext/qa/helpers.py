@@ -65,9 +65,9 @@ def qa_openness_stars_dataset2_html(dataset):
         try:
             getattr(jsonFormats, formato)
         except AttributeError:
-            print "Doesn't exist" % formato
+            print "Doesn't exist"
         else:
-            print "Exists %s" % formato
+            print "Exists %s"
             #print jsonFormats[formato]
             #_RESOURCES[formato] = jsonFormats[formato]
     print _RESOURCES
