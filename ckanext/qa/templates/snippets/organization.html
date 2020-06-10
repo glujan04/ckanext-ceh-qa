@@ -2,10 +2,7 @@
 
 {% block info %}
   {{ super() }}
-  {% block secondary_content %}
-  {{ super() }}
-  asdasdsadsadsadasdsads
-  {% endblock %}
+
   {% block package_openness %}
     {% if c.pkg_dict %}
       <div class="module module-narrow module-shallow context-info">
@@ -16,7 +13,10 @@
       </div>
     {% endif %}
   {% endblock %}
-
+  {% block secondary_content %}
+  {{ super() }}
+  asdasdsadsadsadasdsads
+  {% endblock %}
 {% endblock %}
     {% if c.pkg_dict %}
 {% snippet "package/read.html", pkg=c.pkg_dict %}
