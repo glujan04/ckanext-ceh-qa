@@ -78,6 +78,8 @@ def qa_openness_stars_dataset2_html(dataset):
                 print 'nooooo'
         #    raise ValueError('Formato duplicado %s' % formato)
     print _RESOURCES
+    maximum = max(_RESOURCES, key=_RESOURCES.get)  # Just use 'min' instead of 'max' for minimum.
+    print(maximum, _RESOURCES[maximum])
     if not qa:
         return tk.literal('<!-- No qa info for this dataset -->')
     if not isinstance(qa, dict):
