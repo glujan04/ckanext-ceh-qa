@@ -48,8 +48,8 @@ def qa_openness_stars_dataset2_html(dataset):
     #for item in files_:
     #   print files_[item]
     id_ = _get_or_bust(dataset, 'id')
-    resource = model.Resource.get(id_)
-    print(resource)
+    pkg = model.Package.get(id_)
+    print 'Package %s %s' % (pkg.name, pkg.id)
     if not qa:
         return tk.literal('<!-- No qa info for this dataset -->')
     if not isinstance(qa, dict):
