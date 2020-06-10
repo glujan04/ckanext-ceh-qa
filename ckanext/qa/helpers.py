@@ -21,6 +21,8 @@ def qa_openness_stars_resource_html(resource):
 
 def qa_openness_stars_dataset_html(dataset):
     qa = dataset.get('qa')
+    qa = {'openness_score': 3, 'openness_score_reason': 'Content of file appeared to be format \"CSV\" which receives openness score: 3.',
+               'updated': '2015-11-19T16:54:49.480393'}
     print(dataset)
     print(qa)
     if not qa:
