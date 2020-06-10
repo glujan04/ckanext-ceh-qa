@@ -63,14 +63,19 @@ def qa_openness_stars_dataset2_html(dataset):
     pkg = model.Package.get(id_)
     print 'Package %s %s' % (pkg.name, pkg.id)
     _RESOURCES = my_dictionary()
-    score = 1
+    def_score = 1
     for res in pkg.resources:
         #obtiene el formato  p.j. JPEG
         formato = getattr(res, 'format').upper()
-        _RESOURCES.add(formato,jsonFormats.get(formato))
+        #obtiene el valor de la extension del config. None si no existe
+        x = jsonFormats.get(formato)
         print _RESOURCES
         if not formato in _RESOURCES:
-            print 'nooooo'
+            if x is not None:
+                _RESOURCES.add(formato, x)
+            else:
+                _RESOURCES.add(formato, def_score)
+                print 'nooooo'
         #    raise ValueError('Formato duplicado %s' % formato)
     print _RESOURCES
     if not qa:
