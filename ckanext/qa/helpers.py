@@ -70,8 +70,7 @@ def qa_openness_stars_dataset2_html(dataset):
              print _RESOURCES.get(formato)
              d = _RESOURCES.get(formato)
              if d is None:
-                #setattr(_RESOURCES, formato, score)
-                print score
+                #print score
                 _RESOURCES[formato] = score
     print _RESOURCES
     if not qa:
