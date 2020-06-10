@@ -29,9 +29,7 @@
 			  {%- for index in range(5-stars) -%}
 				<span class="fa fa-star-o"></span>
 			  {%- endfor -%}
-			  {%- if stars == 0 -%}
-				{{ _("{0} de {1}").format(stars, 5) }}
-			  {%- endif -%}
+			  {{ _("{0} de {1}").format(stars, 5) }}
 			</span>
 		  {%- endif -%}
 		</span>
