@@ -10,9 +10,9 @@
         {{ title }}
       </h2>
       {% block package_openness_items %}
-      <nav>
+      <section class="module-content">
         {% snippet "qa/stars.html", stars=0 %}
-      </nav>
+      </section>
 	  {% endblock %}
     {#{% block package_openness_items %}
       {% set title = 'Has Resources (data)' %}
