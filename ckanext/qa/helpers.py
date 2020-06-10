@@ -58,7 +58,7 @@ def qa_openness_stars_dataset2_html(dataset):
     _RESOURCES = {}
     for res in pkg.resources:
         #print res format
-        formato = getattr(res, 'format').upper()
+        formato = getattr(res, 'format').upper().strip()
         #print formato
         if formato in _RESOURCES:
             raise ValueError('Formato duplicado %s' % formato)
