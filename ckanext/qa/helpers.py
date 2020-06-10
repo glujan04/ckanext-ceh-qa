@@ -4,6 +4,8 @@ from ckan.plugins import toolkit as tk
 
 def qa_openness_stars_resource_html(resource):
     qa = resource.get('qa')
+    print('ddddd')
+    print(qa)
     if not qa:
         return tk.literal('<!-- No qa info for this resource -->')
     if not isinstance(qa, dict):
