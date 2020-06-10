@@ -1,0 +1,27 @@
+ <section class="module module-narrow module-shallow">
+    {% block facet_list_heading %}
+      <h2 class="module-heading">
+        <i class="fa fa-filter">sadadasdsad</i>
+        {% set title = 'Resources (data)' %}
+        {{ title }}
+      </h2>
+    {% endblock %}
+    {#{% block facet_list_items %}
+      {% set title = 'Has Resources (data)' %}
+      <nav>
+        <ul class="{{ nav_class or 'list-unstyled nav nav-simple nav-facet' }}">
+          {% set href = h.remove_url_param('num_resources',
+                                           extras=extras,
+                                           alternative_url=alternative_url) 
+                        if c.fields_grouped['num_resources'] 
+                        else h.add_url_param(new_params={'num_resources': '[1 TO *]' },
+                                            alternative_url=alternative_url) %}
+          <li class="{{ nav_item_class or 'nav-item' }}{% if c.fields_grouped['num_resources'] %} active{% endif %}">
+            <a href="{{ href }}" title="{{ title }}">
+              <span>{{ title }}</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    {% endblock %} #}
+  </section>
