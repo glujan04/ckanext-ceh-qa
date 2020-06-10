@@ -38,6 +38,7 @@ def qa_openness_stars_dataset_html(dataset):
         tk.render('qa/openness_stars_brief.html',
                   extra_vars=extra_vars))
 
+_RESOURCES = None
 
 def qa_openness_stars_dataset2_html(dataset):
     qa = dataset.get('qa')
@@ -55,7 +56,7 @@ def qa_openness_stars_dataset2_html(dataset):
     id_ = getattr(dataset, 'id')
     pkg = model.Package.get(id_)
     print 'Package %s %s' % (pkg.name, pkg.id)
-    global _RESOURCE_FORMAT_SCORES
+    global _RESOURCES
     _RESOURCES = {}
     score = 1
     for res in pkg.resources:
