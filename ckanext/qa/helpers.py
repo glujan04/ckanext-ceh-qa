@@ -45,7 +45,7 @@ def qa_openness_stars_dataset2_html(dataset):
     #Pregunta si es de tipo dataset
     field_name = getattr(dataset, 'type')
     files_ = lib.resource_format_scores()
-    for item in files_
+    for item in files_:
        print item
     if not qa:
         return tk.literal('<!-- No qa info for this dataset -->')
