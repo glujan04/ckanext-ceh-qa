@@ -48,8 +48,8 @@ class my_dictionary(dict):
 
 def qa_openness_stars_dataset2_html(dataset):
     qa = dataset.get('qa')
-    qa = {'openness_score': 3, 'openness_score_reason': 'Content of file appeared to be format \"CSV\" which receives openness score: 3.',
-               'updated': '2015-11-19T16:54:49.480393'}
+    #qa = {'openness_score': 3, 'openness_score_reason': 'Content of file appeared to be format \"CSV\" which receives openness score: 3.',
+    #           'updated': '2015-11-19T16:54:49.480393'}
     #Pregunta si es de tipo dataset
     field_name = getattr(dataset, 'type')
     #valida que el dataset no sea de tipo harvest
@@ -80,6 +80,8 @@ def qa_openness_stars_dataset2_html(dataset):
     print _RESOURCES
     maximum = max(_RESOURCES, key=_RESOURCES.get)  # Just use 'min' instead of 'max' for minimum.
     print(maximum, _RESOURCES[maximum])
+    qa = {'openness_score': _RESOURCES[maximum], 'openness_score_reason': 'Content of file appeared to be format \"%s\" which receives openness score: %s.' % (maximum, _RESOURCES[maximum]),
+               'updated': '2015-11-19T16:54:49.480393'}
     if not qa:
         return tk.literal('<!-- No qa info for this dataset -->')
     if not isinstance(qa, dict):
