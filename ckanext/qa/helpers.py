@@ -3,6 +3,8 @@ from ckan.plugins import toolkit as tk
 import lib
 from ckan import model
 
+_get_or_bust = tk.get_or_bust
+
 def qa_openness_stars_resource_html(resource):
     qa = resource.get('qa')
     qa = {'openness_score': 3, 'openness_score_reason': 'Content of file appeared to be format \"CSV\" which receives openness score: 3.',
