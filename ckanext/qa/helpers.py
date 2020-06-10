@@ -21,7 +21,7 @@ def qa_openness_stars_resource_html(resource):
 
 def qa_openness_stars_dataset_html(dataset):
     qa = dataset.get('qa')
-    print('ddddd')
+    print(dataset)
     print(qa)
     if not qa:
         return tk.literal('<!-- No qa info for this dataset -->')
