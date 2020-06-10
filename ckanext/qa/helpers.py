@@ -69,7 +69,8 @@ def qa_openness_stars_dataset2_html(dataset):
         formato = getattr(res, 'format').upper()
         _RESOURCES.add(formato,jsonFormats.get(formato))
         print _RESOURCES
-        #if formato in _RESOURCES:
+        if not formato in _RESOURCES:
+            print 'nooooo'
         #    raise ValueError('Formato duplicado %s' % formato)
     print _RESOURCES
     if not qa:
