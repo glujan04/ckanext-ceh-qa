@@ -38,7 +38,7 @@ def qa_openness_stars_dataset_html(dataset):
         tk.render('qa/openness_stars_brief.html',
                   extra_vars=extra_vars))
 
-class my_dictionary(dict): 
+class dicRes(dict): 
     # __init__ function 
     def __init__(self): 
         self = dict() 
@@ -62,24 +62,23 @@ def qa_openness_stars_dataset2_html(dataset):
     id_ = getattr(dataset, 'id')
     pkg = model.Package.get(id_)
     print 'Package %s %s' % (pkg.name, pkg.id)
-    _RESOURCES = my_dictionary()
+    _RESOURCES = dicRes()
     def_score = 1
     for res in pkg.resources:
         #obtiene el formato  p.j. JPEG
         formato = getattr(res, 'format').upper()
         #obtiene el valor de la extension del config. None si no existe
         x = jsonFormats.get(formato)
-        print _RESOURCES
+        #print _RESOURCES
         if not formato in _RESOURCES:
             if x is not None:
                 _RESOURCES.add(formato, x)
             else:
                 _RESOURCES.add(formato, def_score)
-                print 'nooooo'
         #    raise ValueError('Formato duplicado %s' % formato)
-    print _RESOURCES
+    #print _RESOURCES
     maximum = max(_RESOURCES, key=_RESOURCES.get)  # Just use 'min' instead of 'max' for minimum.
-    print(maximum, _RESOURCES[maximum])
+    #print(maximum, _RESOURCES[maximum])
     qa = {'openness_score': _RESOURCES[maximum], 'openness_score_reason': 'Content of file appeared to be format \"%s\" which receives openness score: %s.' % (maximum, _RESOURCES[maximum]),
                'updated': '2015-11-19T16:54:49.480393'}
     if not qa:
