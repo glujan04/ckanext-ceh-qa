@@ -38,8 +38,13 @@ def qa_openness_stars_dataset_html(dataset):
         tk.render('qa/openness_stars_brief.html',
                   extra_vars=extra_vars))
 
-class _RESOURCES2(object):
-        pass
+class my_dictionary(dict): 
+    # __init__ function 
+    def __init__(self): 
+        self = dict() 
+    # Function to add key:value 
+    def add(self, key, value): 
+        self[key] = value 
 
 def qa_openness_stars_dataset2_html(dataset):
     qa = dataset.get('qa')
@@ -57,7 +62,7 @@ def qa_openness_stars_dataset2_html(dataset):
     id_ = getattr(dataset, 'id')
     pkg = model.Package.get(id_)
     print 'Package %s %s' % (pkg.name, pkg.id)
-    _RESOURCES = object()
+    _RESOURCES = {}
     score = 1
     for res in pkg.resources:
         #print res format
@@ -73,7 +78,7 @@ def qa_openness_stars_dataset2_html(dataset):
              d = _RESOURCES.get(formato)
              if d is None:
                 #_RESOURCES.formato = lambda: None
-                _RESOURCES['JP2'] = 1
+                #_RESOURCES['JP2'] = 1
                 print _RESOURCES
                 #_RESOURCES[formato] = jsonFormats.get('DCR')
     print _RESOURCES
