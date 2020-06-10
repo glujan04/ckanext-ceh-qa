@@ -85,6 +85,8 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
             helpers.qa_openness_stars_resource_html,
             'qa_openness_stars_dataset_html':
             helpers.qa_openness_stars_dataset_html,
+            'qa_openness_stars_dataset2_html':
+            helpers.qa_openness_stars_dataset2_html,
             }
 
     # IPackageController
