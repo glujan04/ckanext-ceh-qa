@@ -81,7 +81,7 @@ def qa_openness_stars_dataset2_html(dataset):
     #print _RESOURCES
     maximum = max(_RESOURCES, key=_RESOURCES.get)  # Just use 'min' instead of 'max' for minimum.
     #print(maximum, _RESOURCES[maximum])
-    qa = {'openness_score': _RESOURCES[maximum], 'openness_score_reason': 'Content of file appeared to be format \"%s\" which receives openness score: %s.' % (maximum, _RESOURCES[maximum]),
+    qa = {'openness_score': _RESOURCES[maximum], 'openness_score_reason': 'El contenido del archivo aparece en formato \"%s\" el cual recibe el puntaje de apertura: %s.' % (maximum, _RESOURCES[maximum]),
                'updated': '2015-11-19T16:54:49.480393'}
     if not qa:
         return tk.literal('<!-- No qa info for this dataset -->')
