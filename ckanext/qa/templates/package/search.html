@@ -1,14 +1,15 @@
 {% ckan_extends %}
-  {% block secondary_content %}
-   {{ super() }}
- <section class="module module-narrow module-shallow">
-    {% block facet_list_heading %}
+
+{% block secondary_content %}
+  {{ super() }}
+   {% block package_openness %}
+     {% if c.pkg_dict %}
+       <section class="module module-narrow module-shallow">
       <h2 class="module-heading">
-        <i class="fa fa-filter">sadadasdsad</i>
-        {% set title = 'Resources (data)' %}
+        <i class="fa fa-eye"></i>
+        {% set title = _('Openness') %}
         {{ title }}
       </h2>
-    {% endblock %}
     {#{% block facet_list_items %}
       {% set title = 'Has Resources (data)' %}
       <nav>
@@ -27,5 +28,7 @@
         </ul>
       </nav>
     {% endblock %} #}
-  </section>
- {% endblock %}
+       </section>
+     {% endif %}
+   {% endblock %}
+{% endblock %}
