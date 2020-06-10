@@ -4,8 +4,6 @@ from ckan.plugins import toolkit as tk
 
 def qa_openness_stars_resource_html(resource):
     qa = resource.get('qa')
-    print('ddddd')
-    print(qa)
     if not qa:
         return tk.literal('<!-- No qa info for this resource -->')
     if not isinstance(qa, dict):
@@ -23,6 +21,8 @@ def qa_openness_stars_resource_html(resource):
 
 def qa_openness_stars_dataset_html(dataset):
     qa = dataset.get('qa')
+    print('ddddd')
+    print(qa)
     if not qa:
         return tk.literal('<!-- No qa info for this dataset -->')
     if not isinstance(qa, dict):
