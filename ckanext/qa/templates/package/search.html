@@ -3,7 +3,6 @@
 {% block secondary_content %}
   {{ super() }}
    {% block package_openness %}
-     {% if c.pkg_dict %}
        <section class="module module-narrow module-shallow">
       <h2 class="module-heading">
         <i class="fa fa-eye"></i>
@@ -29,6 +28,5 @@
       </nav>
     {% endblock %} #}
        </section>
-     {% endif %}
    {% endblock %}
 {% endblock %}
