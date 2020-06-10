@@ -56,6 +56,7 @@ def qa_openness_stars_dataset2_html(dataset):
     pkg = model.Package.get(id_)
     print 'Package %s %s' % (pkg.name, pkg.id)
     _RESOURCES = {}
+    score = 1
     for res in pkg.resources:
         #print res format
         formato = getattr(res, 'format').upper()
@@ -69,7 +70,8 @@ def qa_openness_stars_dataset2_html(dataset):
              print _RESOURCES.get(formato)
              d = _RESOURCES.get(formato)
              if d is None:
-                setattr(_RESOURCES, formato, 1)
+                #setattr(_RESOURCES, formato, score)
+                _RESOURCES[formato] = score
     print _RESOURCES
     if not qa:
         return tk.literal('<!-- No qa info for this dataset -->')
