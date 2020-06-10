@@ -58,12 +58,12 @@ def qa_openness_stars_dataset2_html(dataset):
     _RESOURCES = {}
     for res in pkg.resources:
         #print res format
-        format_ = getattr(res, 'format').upper()
-        #print format_
-        if format_ in _RESOURCES:
-            raise ValueError('Formato duplicado %s' % format_)
-        score = jsonFormats_[format_]
-        #_RESOURCES[format_] = score
+        formato = getattr(res, 'format').upper()
+        #print formato
+        if formato in _RESOURCES:
+            raise ValueError('Formato duplicado %s' % formato)
+        score = jsonFormats_[formato]
+        #_RESOURCES[formato] = score
     print _RESOURCES
     if not qa:
         return tk.literal('<!-- No qa info for this dataset -->')
