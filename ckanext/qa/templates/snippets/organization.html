@@ -11,8 +11,10 @@
           {{ h.qa_openness_stars_dataset_html(c.pkg_dict) }}<br>
         </section>
       </div>
-      {% snippet "package/read.html" %}
     {% endif %}
   {% endblock %}
 
 {% endblock %}
+    {% if c.pkg_dict %}
+{% snippet "package/read.html", pkg=c.pkg_dict %}
+    {% endif %}
