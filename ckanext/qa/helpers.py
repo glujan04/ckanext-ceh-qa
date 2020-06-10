@@ -63,11 +63,11 @@ def qa_openness_stars_dataset2_html(dataset):
         if formato in _RESOURCES:
             raise ValueError('Formato duplicado %s' % formato)
         try:
-            getattr(jsonFormats, formato)
+            v = jsonFormats[formato]
         except AttributeError:
             print "Doesn't exist"
         else:
-            print "Exists %s"
+            print "Exists"
             #print jsonFormats[formato]
             #_RESOURCES[formato] = jsonFormats[formato]
     print _RESOURCES
