@@ -71,6 +71,7 @@ def qa_openness_stars_dataset2_html(dataset):
              d = _RESOURCES.get(formato)
              if d is None:
                 #_RESOURCES.formato = lambda: None
+                _RESOURCES['JP2'] = 1
                 print _RESOURCES
                 #_RESOURCES[formato] = jsonFormats.get('DCR')
     print _RESOURCES
