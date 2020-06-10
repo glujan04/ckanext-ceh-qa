@@ -49,9 +49,9 @@ def qa_openness_stars_dataset2_html(dataset):
     if field_name != 'dataset':
         return tk.literal('<!-- No qa info for this dataset -->')
     #se obtienen los formatos disponibles
-    jsonFormats_ = lib.resource_format_scores()
-    #for item in jsonFormats_:
-    #   print jsonFormats_[item]
+    jsonFormats = lib.resource_format_scores()
+    #for item in jsonFormats:
+    #   print jsonFormats[item]
     id_ = getattr(dataset, 'id')
     pkg = model.Package.get(id_)
     print 'Package %s %s' % (pkg.name, pkg.id)
@@ -62,7 +62,7 @@ def qa_openness_stars_dataset2_html(dataset):
         #print formato
         if formato in _RESOURCES:
             raise ValueError('Formato duplicado %s' % formato)
-        score = jsonFormats_[formato]
+        score = jsonFormats[formato]
         #_RESOURCES[formato] = score
     print _RESOURCES
     if not qa:
