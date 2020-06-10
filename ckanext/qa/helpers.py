@@ -80,7 +80,7 @@ def qa_openness_stars_dataset2_html(dataset):
                 #_RESOURCES.formato = lambda: None
                 #_RESOURCES['JP2'] = 1
                 print _RESOURCES
-                #_RESOURCES[formato] = jsonFormats.get('DCR')
+                _RESOURCES[formato] = score
     print _RESOURCES
     if not qa:
         return tk.literal('<!-- No qa info for this dataset -->')
