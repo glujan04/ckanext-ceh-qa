@@ -24,12 +24,12 @@
 		  {%- if stars != None -%}
 			<span class="star-rating-stars">
 			  {%- for index in range(stars) -%}
-				<span class="fa fa-star ceh-f-star"></span>
-			  {%- endfor -%}
-			  {%- for index in range(5-stars) -%}
-				<span class="fa fa-star-o"></span>
-			  {%- endfor -%}
-			  {{ _("{0} de {1}").format(stars, 5) }}
+                 <span class="fa fa-star ceh-f-star"></span>
+              {%- endfor -%}
+              {%- for index in range(5-stars) -%}
+                 <span class="fa fa-star-o"></span>
+              {%- endfor -%}
+              {{ _("{0} out of {1}").format(stars, 5) }}
 			</span>
 		  {%- endif -%}
 		</span>
