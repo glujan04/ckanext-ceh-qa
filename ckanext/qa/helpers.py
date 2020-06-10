@@ -58,7 +58,7 @@ def qa_openness_stars_dataset2_html(dataset):
     _RESOURCES = {}
     for res in pkg.resources:
         #print res format
-        formato = string.strip(getattr(res, 'format').upper())
+        formato = getattr(res, 'format').upper()
         print formato
         x = getattr(jsonFormats, formato, None)
         print (x)
