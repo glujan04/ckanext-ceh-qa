@@ -65,6 +65,7 @@ def qa_openness_stars_dataset2_html(dataset):
     _RESOURCES = dicRes()
     def_score = 1
     for res in pkg.resources:
+        print res
         #obtiene el formato  p.j. JPEG
         formato = getattr(res, 'format').upper()
         #obtiene el valor de la extension del config. None si no existe
