@@ -66,7 +66,7 @@ def qa_openness_stars_dataset2_html(dataset):
             #print jsonFormats[formato]
             _RESOURCES[formato] = x
         else:
-             if _RESOURCES.get(formato) is not None:
+             if _RESOURCES.get(formato) is None:
                 _RESOURCES[formato] = 1
     print _RESOURCES
     if not qa:
