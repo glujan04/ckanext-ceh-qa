@@ -3,7 +3,6 @@ from ckan.plugins import toolkit as tk
 import lib
 from ckan import model
 
-_get_or_bust = tk.get_or_bust
 
 def qa_openness_stars_resource_html(resource):
     qa = resource.get('qa')
@@ -49,7 +48,7 @@ def qa_openness_stars_dataset2_html(dataset):
     files_ = lib.resource_format_scores()
     #for item in files_:
     #   print files_[item]
-    id_ = _get_or_bust(dataset, 'id')
+    id_ = getattr(dataset, 'id')
     pkg = model.Package.get(id_)
     print 'Package %s %s' % (pkg.name, pkg.id)
     if not qa:
