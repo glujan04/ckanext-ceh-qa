@@ -62,9 +62,8 @@ def qa_openness_stars_dataset2_html(dataset):
         #print formato
         if formato in _RESOURCES:
             raise ValueError('Formato duplicado %s' % formato)
-        print formato
         if hasattr(jsonFormats, formato):
-            print (jsonFormats, formato)
+            print jsonFormats[formato]
             _RESOURCES[formato] = jsonFormats[formato]
     print _RESOURCES
     if not qa:
