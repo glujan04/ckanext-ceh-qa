@@ -45,14 +45,24 @@ def qa_openness_stars_dataset2_html(dataset):
                'updated': '2015-11-19T16:54:49.480393'}
     #Pregunta si es de tipo dataset
     field_name = getattr(dataset, 'type')
-    files_ = lib.resource_format_scores()
-    #for item in files_:
-    #   print files_[item]
+    #valida que el dataset no sea de tipo harvest
+    if not field_name=='dataset':
+        return tk.literal('<!-- No qa info for this dataset -->')
+    #se obtienen los formatos disponibles
+    jsonFormats_ = lib.resource_format_scores()
+    #for item in jsonFormats_:
+    #   print jsonFormats_[item]
     id_ = getattr(dataset, 'id')
     pkg = model.Package.get(id_)
     print 'Package %s %s' % (pkg.name, pkg.id)
+    _RESOURCES = {}
     for res in pkg.resources:
-        print res
+        #print res format
+        _format = getattr(dataset, 'id').upper()
+        if _format in _RESOURCES:
+            raise ValueError('Formato duplicado %s' % (format_))
+        _RESOURCES[format_] = jsonFormats_[format_]
+    print _RESOURCES
     if not qa:
         return tk.literal('<!-- No qa info for this dataset -->')
     if not isinstance(qa, dict):
