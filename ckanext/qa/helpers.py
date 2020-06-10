@@ -76,7 +76,7 @@ def qa_openness_stars_dataset2_html(dataset):
         else:
              print _RESOURCES.get(formato)
              d = _RESOURCES.get(formato)
-             if d is None:
+             if not formato in _RESOURCES:
                 #_RESOURCES.formato = lambda: None
                 #_RESOURCES['JP2'] = 1
                 print _RESOURCES
