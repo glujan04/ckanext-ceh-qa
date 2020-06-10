@@ -46,7 +46,7 @@ def qa_openness_stars_dataset2_html(dataset):
     #Pregunta si es de tipo dataset
     field_name = getattr(dataset, 'type')
     #valida que el dataset no sea de tipo harvest
-    if not field_name=='dataset':
+    if field_name!='dataset':
         return tk.literal('<!-- No qa info for this dataset -->')
     #se obtienen los formatos disponibles
     jsonFormats_ = lib.resource_format_scores()
