@@ -1,5 +1,11 @@
 {% ckan_extends %}
-
+{% block styles %}
+ <style type="text/css">
+  .ceh-f-star {
+    color: orange;
+  }
+ </style>
+{% endblock %}
 {% block secondary_content %}
   {{ super() }}
    {% block package_openness %}
@@ -11,7 +17,23 @@
       </h2>
       {% block package_openness_items %}
       <section class="module-content">
-        {% snippet "qa/stars.html", stars=0 %}
+        {#{% snippet "qa/stars.html", stars=0 %} #}
+		{% set stars = 0 %}
+		<span class="star-rating{% if stars == 0 %} no-stars{% endif %}">
+		  {%- if stars != None -%}
+			<span class="star-rating-stars">
+			  {%- for index in range(stars) -%}
+				<span class="fa fa-star ceh-f-star"></span>
+			  {%- endfor -%}
+			  {%- for index in range(5-stars) -%}
+				<span class="fa fa-star-o"></span>
+			  {%- endfor -%}
+			  {%- if stars == 0 -%}
+				{{ _("{0} de {1}").format(stars, 5) }}
+			  {%- endif -%}
+			</span>
+		  {%- endif -%}
+		</span>
       </section>
 	  {% endblock %}
     {#{% block package_openness_items %}
