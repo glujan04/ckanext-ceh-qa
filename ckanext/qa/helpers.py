@@ -41,7 +41,7 @@ def qa_openness_stars_dataset2_html(dataset):
     qa = dataset.get('qa')
     qa = {'openness_score': 3, 'openness_score_reason': 'Content of file appeared to be format \"CSV\" which receives openness score: 3.',
                'updated': '2015-11-19T16:54:49.480393'}
-    print(dataset['type'])
+    print getattr(dataset, 'type')
     if not qa:
         return tk.literal('<!-- No qa info for this dataset -->')
     if not isinstance(qa, dict):
