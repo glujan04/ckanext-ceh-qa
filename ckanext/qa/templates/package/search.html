@@ -9,7 +9,12 @@
         {% set title = _('Openness') %}
         {{ title }}
       </h2>
-    {#{% block facet_list_items %}
+      {% block package_openness_items %}
+      <nav>
+        {% snippet "qa/stars.html", stars=0 %}
+      </nav>
+	  {% endblock %}
+    {#{% block package_openness_items %}
       {% set title = 'Has Resources (data)' %}
       <nav>
         <ul class="{{ nav_class or 'list-unstyled nav nav-simple nav-facet' }}">
