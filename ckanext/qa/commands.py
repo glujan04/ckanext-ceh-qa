@@ -98,8 +98,6 @@ class QACommand(p.toolkit.CkanCommand):
         from ckanext.qa.model import init_tables
         init_tables(model.meta.engine)
 
-        print('DB tables created')
-
     def update(self):
         from ckan import model
         from ckanext.qa import lib
