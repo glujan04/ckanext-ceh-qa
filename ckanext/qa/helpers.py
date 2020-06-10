@@ -62,7 +62,7 @@ def qa_openness_stars_dataset2_html(dataset):
         print formato
         x = getattr(jsonFormats, formato, None)
         print (x)
-        print (jsonFormats)
+        print (jsonFormats['JPEG'])
         if formato in _RESOURCES:
             raise ValueError('Formato duplicado %s' % formato)
         try:
