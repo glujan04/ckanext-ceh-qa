@@ -22,16 +22,17 @@
         {% set title = _('Openness') %}
         {{ title }}
       </h2>
+	  {# {% snippet "qa/stars.html", stars=0 %} #}
       {% block package_openness_items %}
-      <section class="module-content">
-        {# {% snippet "qa/stars.html", stars=0 %} #}
-		{% set stars = 2 %}
-		{% set ope_title = _("{0}:{1}").format(title, stars) %}
-		{%- if stars != None -%}
+	  {% set stars = 2 %}
+	  {% set ope_title = _("{0}:{1}").format(title, stars) %}
+	  {%- if stars != None -%}
 		<nav>
             <ul class="{{ nav_class or 'list-unstyled nav nav-simple nav-facet' }}">
 			<li class="{{ nav_item_class or 'nav-item' }} {% if stars > 0 %}active{% endif %}">
 				<a href="{{ href }}" title="{{ ope_title }}">
+		{%- else -%}
+        <section class="module-content">
 		{%- endif -%}
 		<span class="star-rating{% if stars == 0 %} no-stars{% endif %}">
 		  {%- if stars != None -%}
@@ -52,9 +53,10 @@
 			</li>
             </ul>
 		</nav>
+		{%- else -%}
+		</section>
 		{%- endif -%}
 		<p class="module-footer"></p>
-      </section>
 	  {% endblock %}
     {#{% block package_openness_items %}
       {% set title = 'Has Resources (data)' %}
