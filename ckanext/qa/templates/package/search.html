@@ -24,11 +24,17 @@
       </h2>
 	  {# {% snippet "qa/stars.html", stars=0 %} #}
       {% block package_openness_items %}
-	  {% set stars = 2 %}
+	  {% set stars = 1 %}
 	  {% set ope_title = _("{0}:{1}").format(_('Openness'), stars) %}
 	  {%- if stars != None -%}
 		<nav>
             <ul class="{{ nav_class or 'list-unstyled nav nav-simple nav-facet' }}">
+          {% set href = h.remove_url_param('openness',
+                                           extras=extras,
+                                           alternative_url=alternative_url) 
+                        if c.fields_grouped['openness'] 
+                        else h.add_url_param(new_params={'openness': '%s' % stars },
+                                            alternative_url=alternative_url) %}
 			<li class="{{ nav_item_class or 'nav-item' }} {% if stars > 0 %}active{% endif %}">
 				<a href="{{ href }}" title="{{ ope_title }}">
 		{%- else -%}
