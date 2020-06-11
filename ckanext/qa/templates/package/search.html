@@ -24,8 +24,15 @@
       </h2>
       {% block package_openness_items %}
       <section class="module-content">
-        {#{% snippet "qa/stars.html", stars=0 %} #}
+        {# {% snippet "qa/stars.html", stars=0 %} #}
 		{% set stars = 2 %}
+		{% set ope_title = _("{0}:{1}").format(title, stars) %}
+		{%- if stars != None -%}
+		<nav>
+            <ul class="{{ nav_class or 'list-unstyled nav nav-simple nav-facet' }}">
+			<li class="{{ nav_item_class or 'nav-item' }} {% if stars > 0 %}active{% endif %}">
+				<a href="{{ href }}" title="{{ ope_title }}">
+		{%- endif -%}
 		<span class="star-rating{% if stars == 0 %} no-stars{% endif %}">
 		  {%- if stars != None -%}
 			<span class="star-rating-stars">
@@ -40,11 +47,13 @@
 			</span>
 		  {%- endif -%}
 		</span>
-		<li class="{{ nav_item_class or 'nav-item' }}{% if stars > 0 %} active{% endif %}">
-            <a href="#" title="dddddd">
-              <span>gggggg</span>
-            </a>
-          </li>
+		{%- if stars != None -%}
+				</a>
+			</li>
+            </ul>
+		</nav>
+		{%- endif -%}
+		<p class="module-footer"></p>
       </section>
 	  {% endblock %}
     {#{% block package_openness_items %}
