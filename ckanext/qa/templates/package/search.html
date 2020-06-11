@@ -23,9 +23,9 @@
         {{ title }}
       </h2>
 	  {# {% snippet "qa/stars.html", stars=0 %} #}
-      {% block package_openness_items %}
 	  {% set stars = 2 %}
 	  {% set ope_title = _("{0}:{1}").format(title, stars) %}
+      {% block package_openness_items %}
 	  {%- if stars != None -%}
 		<nav>
             <ul class="{{ nav_class or 'list-unstyled nav nav-simple nav-facet' }}">
