@@ -32,6 +32,10 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
         print search_params
         return search_params
 
+    def before_view(self, pkg_dict):
+        print pkg_dict
+        return pkg_dict
+
     # IConfigurer
 
     def dataset_facets(self, facets_dict, package_type):
