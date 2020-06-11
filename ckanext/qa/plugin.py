@@ -15,7 +15,8 @@ log = logging.getLogger(__name__)
 
 
 class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
-    p.implements(p.IFacets)
+    p.implements(p.IPackageController)
+    #p.implements(p.IFacets)
     p.implements(p.IConfigurer, inherit=True)
     p.implements(p.IRoutes, inherit=True)
     p.implements(IPipe, inherit=True)
@@ -27,8 +28,14 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
 
     # IConfigurer
 
+    def before_search(self, search_params):
+        print search_params
+        return search_params
+
+    # IConfigurer
+
     def dataset_facets(self, facets_dict, package_type):
-        facets_dict['titles'] = p.toolkit._('Openness')
+        #facets_dict['openness'] = p.toolkit._('Openness')
 
         # Return the updated facet dict.
         return facets_dict
