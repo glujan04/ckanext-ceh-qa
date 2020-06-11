@@ -27,12 +27,13 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
 
     # IPackageController
 
-    def after_search(self, search_results):
-        print search_results
-        return search_results
-
     def before_search(self, search_params):
         return search_params
+
+    def after_search(self, search_results, search_params):
+        print search_results
+        print search_params
+        return search_results
 
     def before_view(self, pkg_dict):
         return pkg_dict
