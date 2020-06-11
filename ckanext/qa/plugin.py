@@ -15,6 +15,7 @@ log = logging.getLogger(__name__)
 
 
 class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
+    p.implements(p.ISearchFacets)
     #p.implements(p.IFacets)
     p.implements(p.IConfigurer, inherit=True)
     p.implements(p.IRoutes, inherit=True)
