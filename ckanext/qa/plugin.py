@@ -31,12 +31,14 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
         return search_params
 
     def after_search(self, search_results, search_params):
-        print search_results
-        print search_params
         return search_results
 
     def before_view(self, pkg_dict):
         return pkg_dict
+
+    def update_facet_titles(self, facet_titles):
+        print facet_titles
+        return facet_titles
 
     # IFacets
 
