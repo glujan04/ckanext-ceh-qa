@@ -27,7 +27,7 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
 
     # IPackageController
 
-   def update_facet_titles(self, facet_titles):
+    def update_facet_titles(self, facet_titles):
         print facet_titles
         return facet_titles
 
