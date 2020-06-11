@@ -28,7 +28,7 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
     # IConfigurer
 
     def dataset_facets(self, facets_dict, package_type):
-        facets_dict['openness'] = p.toolkit._('Openness')
+        facets_dict['titles'] = p.toolkit._('Openness')
 
         # Return the updated facet dict.
         return facets_dict
