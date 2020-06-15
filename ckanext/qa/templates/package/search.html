@@ -34,7 +34,7 @@
                                            extras=extras,
                                            alternative_url=alternative_url) 
                         if c.fields_grouped['openness'] 
-                        else h.add_url_param(new_params={'q=openness': '%s' % stars },
+                        else h.add_url_param(new_params={q: '%s' % stars },
                                             alternative_url=alternative_url) %}
 			<li class="{{ nav_item_class or 'nav-item' }} {% if stars > 0 %}active{% endif %}">
 				<a href="{{ href }}" title="{{ ope_title }}">
