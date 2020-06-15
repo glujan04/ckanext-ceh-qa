@@ -24,7 +24,7 @@
       </h2>
 	  {# {% snippet "qa/stars.html", stars=0 %} #}
       {% block facet_list_items %}
-	  {% set stars = 1 %}
+	  {% set stars = 0 %}
 	  {% set title = 'Has Resources (data)' %}
 	  {% set ope_title = _("{0}:{1}").format(_('Openness'), stars) %}
 	  {%- if stars != None -%}
