@@ -34,7 +34,7 @@
                                            extras=extras,
                                            alternative_url=alternative_url) 
                         if c.fields_grouped['openness'] 
-                        else h.add_url_param(new_params={q: 'openness:%s' % stars },
+                        else h.add_url_param(new_params={'openness': '%s' % stars },
                                             alternative_url=alternative_url) %}
 			<li class="{{ nav_item_class or 'nav-item' }} {% if stars > 0 %}active{% endif %}">
 				<a href="{{ href }}" title="{{ ope_title }}">
@@ -45,7 +45,8 @@
 		  {%- if stars != None -%}
 			<span class="star-rating-stars">
 			  {%- for index in range(stars) -%}
-                 <span class="fa fa-star ceh-f-star ceh-cursor"></span>
+			  <a href="#{{ index }}">
+                 <span class="fa fa-star ceh-f-star ceh-cursor"></span></a>
               {%- endfor -%}
               {%- for index in range(5-stars) -%}
                  <span class="fa fa-star-o ceh-h-star ceh-cursor"></span>
