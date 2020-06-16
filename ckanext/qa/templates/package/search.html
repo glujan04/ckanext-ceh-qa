@@ -28,10 +28,11 @@
         <i class="fa fa-eye"></i>
         {% set title = _('Openness') %}
         {{ title }}
+        <a href="/dataset" class="action clear_action">{{ _('Clear') }} </a>
       </h2>
 	  {# {% snippet "qa/stars.html", stars=0 %} #}
       {% block facet_list_items %}
-	  {% set stars = 0 %}
+	  {% set stars = 5 %}
 	  {% set title = 'Has Resources (data)' %}
 	  {% set ope_title = _("{0}:{1}").format(_('Openness'), stars) %}
 	  {%- if stars != None -%}
@@ -59,7 +60,7 @@
                  <a href="/dataset?q=openness:{{index+1}}"><span class="fa fa-star-o ceh-h-star ceh-cursor"></span></a>
               {%- endfor -%}
               {# 0 stars looks awfully like 5 stars, so be explicit #}
-              {{ _("{0} de {1}").format(stars, 5) }}
+             {# {{ _("{0} de {1}").format(stars, 5) }} #}
 			</span>
 		  {%- endif -%}
 		</span>
