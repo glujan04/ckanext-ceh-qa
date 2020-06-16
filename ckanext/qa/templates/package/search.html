@@ -11,6 +11,13 @@
   .ceh-cursor {
      cursor: pointer;
   }
+  .ceh-filter {
+     font-size: 14px;
+     line-height: 1.42857143;
+     padding: 10px 15px;
+     margin: -7px -25px;
+     display: block;
+  }
  </style>
 {% endblock %}
 {% block secondary_content %}
@@ -38,6 +45,7 @@
                                             alternative_url=alternative_url) %}
 			<li class="{{ nav_item_class or 'nav-item' }} {% if stars > 0 %}active{% endif %}">
 				<!--<a href="{{ href }}" title="{{ ope_title }}">-->
+		<div class="ceh-filter">
 		{%- else -%}
         <section class="module-content">
 		{%- endif -%}
@@ -45,7 +53,7 @@
 		  {%- if stars != None -%}
 			<span class="star-rating-stars">
 			  {%- for index in range(stars) -%}
-                 <span class="fa fa-star ceh-f-star ceh-cursor"></span>
+                 <a href="/dataset?q=openness:{{index+1}}"><span class="fa fa-star ceh-f-star ceh-cursor"></span></a>
               {%- endfor -%}
               {%- for index in range(5-stars) -%}
                  <span class="fa fa-star-o ceh-h-star ceh-cursor"></span>
@@ -56,7 +64,7 @@
 		  {%- endif -%}
 		</span>
 		{%- if stars != None -%}
-				<!--</a>-->
+		</div><!--</a>-->
 			</li>
             </ul>
 		</nav>
