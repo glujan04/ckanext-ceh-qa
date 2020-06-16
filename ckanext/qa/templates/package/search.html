@@ -37,7 +37,7 @@
                         else h.add_url_param(new_params={'openness': '%s' % stars },
                                             alternative_url=alternative_url) %}
 			<li class="{{ nav_item_class or 'nav-item' }} {% if stars > 0 %}active{% endif %}">
-				<a href="{{ href }}" title="{{ ope_title }}">
+				<!--<a href="{{ href }}" title="{{ ope_title }}">-->
 		{%- else -%}
         <section class="module-content">
 		{%- endif -%}
@@ -56,7 +56,7 @@
 		  {%- endif -%}
 		</span>
 		{%- if stars != None -%}
-				</a>
+				<!--</a>-->
 			</li>
             </ul>
 		</nav>
