@@ -1,6 +1,7 @@
 import copy
 from ckan.plugins import toolkit as tk
 import lib
+import os
 from ckan import model
 
 
@@ -66,9 +67,15 @@ def qa_openness_stars_dataset2_html(dataset):
     def_score = 1
     #print pkg
     for res in pkg.resources:
-        print res
+        #print res
         #obtiene el formato  p.j. JPEG
-        formato = getattr(res, 'format').upper()
+        name = getattr(res, 'name').upper()
+        #obtiene el índice de la extensión del archivo
+        _index = getattr(res, 'name').rfind('.') 
+        if _index != -1:
+            formato = name[_index+1:]
+        else:
+            formato = name
         #obtiene el valor de la extension del config. None si no existe
         x = jsonFormats.get(formato)
         #print _RESOURCES
