@@ -70,7 +70,7 @@ def qa_openness_stars_dataset2_html(dataset):
         #print res
         #obtiene el formato  p.j. JPEG
         name = getattr(res, 'name').upper()
-        #obtiene el índice de la extensión del archivo
+        #obtiene el indice de la extension del archivo
         _index = getattr(res, 'name').rfind('.') 
         if _index != -1:
             formato = name[_index+1:]
