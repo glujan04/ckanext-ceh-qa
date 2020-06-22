@@ -78,7 +78,7 @@ def qa_openness_stars_dataset2_html(dataset):
             else:
                 _RESOURCES.add(formato, def_score)
         #    raise ValueError('Formato duplicado %s' % formato)
-    #print _RESOURCES
+    print _RESOURCES
     maximum = max(_RESOURCES, key=_RESOURCES.get)  # Just use 'min' instead of 'max' for minimum.
     #print(maximum, _RESOURCES[maximum])
     qa = {'openness_score': _RESOURCES[maximum], 'openness_score_reason': 'El contenido del archivo aparece en formato \"%s\" el cual recibe el puntaje de apertura: %s.' % (maximum, _RESOURCES[maximum]),
