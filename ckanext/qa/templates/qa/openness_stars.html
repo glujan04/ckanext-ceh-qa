@@ -18,6 +18,28 @@ OR the package_show's package['qa'] e.g.
 "updated": "2015-11-19T16:54:49.480393",
 
 #}
+{% ckan_extends %}
+{% block styles %}
+  {{ super() }}
+ <style type="text/css">
+  .ceh-f-star {
+    color: orange;
+  }
+  .ceh-h-star:hover {
+     color: orange;
+  }
+  .ceh-cursor {
+     cursor: pointer;
+  }
+  .ceh-filter {
+     font-size: 14px;
+     line-height: 1.42857143;
+     padding: 10px 15px;
+     margin: -7px -25px;
+     display: block;
+  }
+ </style>
+{% endblock %}
 <div class="qa openness-{{ openness_score }}">
   {% if openness_score != None %}
     {% trans %}Openness{% endtrans %}: {% snippet "qa/stars.html", stars=openness_score %} <br/>
