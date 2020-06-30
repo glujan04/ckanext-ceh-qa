@@ -15,7 +15,7 @@ log = logging.getLogger(__name__)
 
 
 class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
-    p.implements(p.IFacets)
+    #p.implements(p.IFacets)
     p.implements(p.IConfigurer, inherit=True)
     p.implements(p.IRoutes, inherit=True)
     p.implements(IPipe, inherit=True)
@@ -23,7 +23,7 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
     p.implements(p.IActions)
     p.implements(p.IAuthFunctions)
     p.implements(p.ITemplateHelpers)
-    p.implements(p.IPackageController, inherit=True)
+    #p.implements(p.IPackageController, inherit=True)
 
     # IPackageController
 
