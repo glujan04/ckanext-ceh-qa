@@ -18,7 +18,7 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
     #p.implements(p.IFacets)
     p.implements(p.IConfigurer, inherit=True)
     p.implements(p.IRoutes, inherit=True)
-    p.implements(IPipe, inherit=True)
+    #p.implements(IPipe, inherit=True)
     #p.implements(IReport)
     p.implements(p.IActions)
     p.implements(p.IAuthFunctions)
