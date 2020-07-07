@@ -64,7 +64,7 @@ def qa_openness_stars_dataset2_html(dataset):
     #print 'Package %s %s' % (pkg.name, pkg.id)
     _RESOURCES = dicRes()
     def_score = 1
-    print pkg
+    print pkg.resources
     for res in pkg.resources:
         #print res
         #obtiene el formato  p.j. JPEG
