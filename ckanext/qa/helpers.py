@@ -4,7 +4,7 @@ from ckan.plugins import toolkit as tk
 import lib
 import os
 from ckan import model
-import ckanext.qa.plugin as QAPlugin
+import ckanext.qa.QAPlugin as QAPlugin
 
 
 def qa_openness_stars_resource_html(resource):
