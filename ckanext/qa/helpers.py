@@ -65,7 +65,7 @@ def qa_openness_stars_dataset2_html(dataset):
     #print 'Package %s %s' % (pkg.name, pkg.id)
     _RESOURCES = dicRes()
     def_score = 1
-    print pkg.resources
+    #print pkg.resources
     for res in pkg.resources:
         #print res
         #obtiene el formato  p.j. JPEG
@@ -99,10 +99,10 @@ def qa_openness_stars_dataset2_html(dataset):
         return tk.literal('<!-- QA info was of the wrong type -->')
 
     schema = dataset
-    schema.update({
-                'openness': [tk.get_validator('ignore_missing'),
-                                tk.get_converter('convert_to_extras')(55)]
-            })
+    #schema.update({
+    #            'openness': [tk.get_validator('ignore_missing'),
+    #                            tk.get_converter('convert_to_extras')(55)]
+    #        })
     print schema
     #schema = self._modify_package_schema(schema)
     # Take a copy of the qa dict, because weirdly the renderer appears to add
