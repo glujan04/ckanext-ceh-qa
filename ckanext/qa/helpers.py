@@ -99,6 +99,7 @@ def qa_openness_stars_dataset2_html(dataset):
         return tk.literal('<!-- QA info was of the wrong type -->')
 
     schema = dataset
+    QAPlugin._modify_package_schema(schema)
     print schema
     #schema = self._modify_package_schema(schema)
     # Take a copy of the qa dict, because weirdly the renderer appears to add
