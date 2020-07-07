@@ -29,6 +29,11 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
 
     # IDatasetForm
 
+    def show_package_schema(self):
+        schema = super(QAPlugin, self).show_package_schema()
+        print 'aqui esquema'
+        return schema
+
     def is_fallback(self):
         # Return True to register this plugin as the default handler for
         # package types not handled by any other IDatasetForm plugin.
@@ -39,13 +44,7 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
         # registers itself as the default (above).
         return []
 
-    def show_package_schema(self):
-        schema = super(QAPlugin, self).show_package_schema()
-        print 'aqui esquema'
-        return schema
-
     def _modify_package_schema(self, schema):
-        self.calls = []
         schema.update({
             'openness': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')(55)]
@@ -70,6 +69,7 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
     #def update_facet_titles(self, facet_titles):
     #    print facet_titles
     #    return facet_titles
+
 
     # IFacets
 
