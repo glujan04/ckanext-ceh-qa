@@ -29,6 +29,11 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
 
     # IDatasetForm
 
+    def is_fallback(self):
+        # Return True to register this plugin as the default handler for
+        # package types not handled by any other IDatasetForm plugin.
+        return True
+
     def show_package_schema(self):
         schema = super(QAPlugin, self).show_package_schema()
         print schema
