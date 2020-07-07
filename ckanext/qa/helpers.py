@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import copy
 from ckan.plugins import toolkit as tk
 import lib
