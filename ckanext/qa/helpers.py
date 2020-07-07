@@ -98,8 +98,7 @@ def qa_openness_stars_dataset2_html(dataset):
     if not isinstance(qa, dict):
         return tk.literal('<!-- QA info was of the wrong type -->')
 
-    QAPlugin_ = QAPlugin()
-    schema = QAPlugin_.update_package_schema()
+    schema = QAPlugin.update_package_schema()
     print schema
     #schema = self._modify_package_schema(schema)
     # Take a copy of the qa dict, because weirdly the renderer appears to add
