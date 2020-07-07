@@ -64,8 +64,9 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
     #    return search_results
 
     def before_view(self, pkg_dict):
+        schema = super(QAPlugin, self).show_package_schema()
         print 'pkg_ddddddd'
-        print pkg_dict
+        print schema
         return pkg_dict
 
     #def update_facet_titles(self, facet_titles):
