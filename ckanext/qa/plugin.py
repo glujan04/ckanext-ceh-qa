@@ -43,6 +43,13 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
         schema = super(QAPlugin, self).show_package_schema()
         print schema
 
+    def _modify_package_schema(self, schema):
+        schema.update({
+            'openness': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')(55)]
+        })
+        return schema
+
 
     # IPackageController
 
