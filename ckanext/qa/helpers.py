@@ -1,4 +1,4 @@
-# encoding: utf-8
+# encoding: ascii
 import copy
 from ckan.plugins import toolkit as tk
 import lib
