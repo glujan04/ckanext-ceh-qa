@@ -88,7 +88,7 @@ def qa_openness_stars_dataset2_html(dataset):
         #    raise ValueError('Formato duplicado %s' % formato)
     print _RESOURCES
     maximum = max(_RESOURCES, key=_RESOURCES.get)  # Just use 'min' instead of 'max' for minimum.
-    print maximum
+    print unicode(maximum, 'ascii')
     lb_star = 'estrellas'
     if _RESOURCES[maximum] == 1:
         lb_star = 'estrella'
