@@ -49,7 +49,7 @@ class dicRes(dict):
     def add(self, key, value): 
         self[key] = value 
 
-def qa_openness_stars_dataset2_html(dataset):
+def qa_openness_stars_dataset2_html(self, dataset):
     qa = dataset.get('qa')
     #Pregunta si es de tipo dataset
     field_name = getattr(dataset, 'type')

@@ -140,7 +140,7 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
             'qa_openness_stars_dataset_html':
             helpers.qa_openness_stars_dataset_html,
             'qa_openness_stars_dataset2_html':
-            helpers.qa_openness_stars_dataset2_html,
+            helpers.qa_openness_stars_dataset2_html(self),
             }
 
     # IPackageController
