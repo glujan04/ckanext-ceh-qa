@@ -93,7 +93,7 @@ def qa_openness_stars_dataset2_html(dataset):
     #lb_star = 'estrellas'
     #if _RESOURCES[maximum] == 1:
     #    lb_star = 'estrella'
-    qa = {'openness_score': _RESOURCES[maximum], 'openness_score_reason': 'El conjunto de datos recibe una puntuación de %s al disponer de un recurso en formato \"%s\".' % (_RESOURCES[maximum], maximum),
+    qa = {'openness_score': _RESOURCES[maximum], 'openness_score_reason': 'El conjunto de datos recibe una puntuacion de %s al disponer de un recurso en formato \"%s\".' % (_RESOURCES[maximum], maximum),
                'updated': None}
     if not qa:
         return tk.literal('<!-- No qa info for this dataset -->')
