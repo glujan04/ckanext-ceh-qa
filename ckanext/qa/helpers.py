@@ -49,7 +49,7 @@ class dicRes(dict):
     def add(self, key, value): 
         self[key] = value 
 
-def qa_openness_stars_dataset2_html(self, dataset):
+def qa_openness_stars_dataset2_html(dataset):
     qa = dataset.get('qa')
     #Pregunta si es de tipo dataset
     field_name = getattr(dataset, 'type')
@@ -98,7 +98,8 @@ def qa_openness_stars_dataset2_html(self, dataset):
     if not isinstance(qa, dict):
         return tk.literal('<!-- QA info was of the wrong type -->')
 
-    schema = QAPlugin.update_package_schema()
+    QAPlugin = QAPlugin()
+    schema = QAPlugin_.update_package_schema()
     print schema
     #schema = self._modify_package_schema(schema)
     # Take a copy of the qa dict, because weirdly the renderer appears to add

@@ -44,6 +44,7 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
         print schema
 
     def _modify_package_schema(self, schema):
+        self.calls = []
         schema.update({
             'openness': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')(55)]
@@ -140,7 +141,7 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
             'qa_openness_stars_dataset_html':
             helpers.qa_openness_stars_dataset_html,
             'qa_openness_stars_dataset2_html':
-            helpers.qa_openness_stars_dataset2_html(self),
+            helpers.qa_openness_stars_dataset2_html,
             }
 
     # IPackageController
