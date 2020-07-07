@@ -106,4 +106,4 @@ def qa_openness_stars_dataset2_html(dataset):
     extra_vars = copy.deepcopy(qa)
     return tk.literal(
         tk.render('qa/openness_stars.html',
-                  extra_vars=extra_vars))
+                  extra_vars=extra_vars.encode('utf-8')))
