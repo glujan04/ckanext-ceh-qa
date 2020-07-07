@@ -34,6 +34,11 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
         # package types not handled by any other IDatasetForm plugin.
         return True
 
+    def package_types(self):
+        # This plugin doesn't handle any special package types, it just
+        # registers itself as the default (above).
+        return []
+
     def show_package_schema(self):
         schema = super(QAPlugin, self).show_package_schema()
         print schema
