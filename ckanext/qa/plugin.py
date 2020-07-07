@@ -23,25 +23,34 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
     p.implements(p.IActions)
     p.implements(p.IAuthFunctions)
     p.implements(p.ITemplateHelpers)
+    p.implements(p.IDatasetForm)
     #p.implements(p.IPackageController, inherit=True)
+
+
+    # IDatasetForm
+
+    def show_package_schema(self):
+        schema = super(QAPlugin, self).show_package_schema()
+        print schema
+
 
     # IPackageController
 
-    def before_search(self, search_params):
-        print search_params
-        return search_params
+    #def before_search(self, search_params):
+    #    print search_params
+    #    return search_params
 
-    def after_search(self, search_results, search_params):
-        print search_results
-        print search_params
-        return search_results
+    #def after_search(self, search_results, search_params):
+    #    print search_results
+    #    print search_params
+    #    return search_results
 
-    def before_view(self, pkg_dict):
-        return pkg_dict
+    #def before_view(self, pkg_dict):
+    #    return pkg_dict
 
-    def update_facet_titles(self, facet_titles):
-        print facet_titles
-        return facet_titles
+    #def update_facet_titles(self, facet_titles):
+    #    print facet_titles
+    #    return facet_titles
 
     # IFacets
 
