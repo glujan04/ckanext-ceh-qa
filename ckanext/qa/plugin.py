@@ -43,6 +43,7 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
         schema = super(QAPlugin, self).show_package_schema()
         print u'aqui esquema'
         print schema
+        return schema
 
     def _modify_package_schema(self, schema):
         self.calls = []
