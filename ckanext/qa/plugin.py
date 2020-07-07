@@ -65,10 +65,10 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
 
     def before_view(self, pkg_dict):
         schema = super(QAPlugin, self).show_package_schema()
-        schema.update({
-            'openness2': [p.toolkit.get_validator('ignore_missing'),
-                            p.toolkit.get_converter('convert_to_extras')]
-        })
+        #schema.update({
+        #    'openness2': [p.toolkit.get_validator('ignore_missing'),
+        #                    p.toolkit.get_converter('convert_to_extras')]
+        #})
         print 'pkg_ddddddd'
         print schema
         return pkg_dict
