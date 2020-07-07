@@ -24,7 +24,7 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
     p.implements(p.IAuthFunctions)
     p.implements(p.ITemplateHelpers)
     p.implements(p.IDatasetForm)
-    #p.implements(p.IPackageController, inherit=True)
+    p.implements(p.IPackageController, inherit=True)
 
 
     # IDatasetForm
@@ -63,8 +63,10 @@ class QAPlugin(p.SingletonPlugin, p.toolkit.DefaultDatasetForm):
     #    print search_params
     #    return search_results
 
-    #def before_view(self, pkg_dict):
-    #    return pkg_dict
+    def before_view(self, pkg_dict):
+        print 'pkg_ddddddd'
+        print pkg_dict
+        return pkg_dict
 
     #def update_facet_titles(self, facet_titles):
     #    print facet_titles
