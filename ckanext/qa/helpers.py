@@ -90,7 +90,7 @@ def qa_openness_stars_dataset2_html(dataset):
     print _RESOURCES
     maximum = max(_RESOURCES, key=_RESOURCES.get)  # Just use 'min' instead of 'max' for minimum.
     #print(maximum, _RESOURCES[maximum])
-    qa = {'openness_score': _RESOURCES[maximum], 'openness_score_reason': 'El conjunto de datos recibe una puntuación de %s ' + ('estrella' if _RESOURCES[maximum] == 1 else 'estrellas') + ' al disponer de un recurso en formato \"%s\".' % (_RESOURCES[maximum], maximum),
+    qa = {'openness_score': _RESOURCES[maximum], 'openness_score_reason': 'El conjunto de datos recibe una puntuación de %s %s al disponer de un recurso en formato \"%s\".' % (_RESOURCES[maximum], ('estrella' if _RESOURCES[maximum] == 1 else 'estrellas'), maximum),
                'updated': None}
     if not qa:
         return tk.literal('<!-- No qa info for this dataset -->')
